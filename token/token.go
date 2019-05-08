@@ -1,5 +1,6 @@
 package token
 
+// exported for use in other places
 type TokenType string
 
 type Token struct {
