@@ -1,6 +1,7 @@
 package lexer
 
 import (
+  //"fmt"
   "monkey/token"
 )
 
@@ -40,6 +41,8 @@ func (l *Lexer) NextToken() token.Token {
 
   l.skipWhitespace()
 
+  //fmt.Println("next token: ", string(l.ch))
+
   switch l.ch {
     case '=':
       tok = newToken(token.ASSIGN, l.ch)
@@ -64,10 +67,13 @@ func (l *Lexer) NextToken() token.Token {
       if isLetter(l.ch) {
         tok.Literal = l.readIdentifier()
         tok.Type = token.LookupIdent(tok.Literal)
-        return tok // return to prevent readChar from getting called again
+
+        // return to prevent readChar from getting called again
+        return tok
       } else if isDigit(l.ch) {
         tok.Type = token.INT
         tok.Literal = l.readNumber()
+        return tok
       } else {
         tok = newToken(token.ILLEGAL, l.ch)
       }

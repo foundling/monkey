@@ -14,11 +14,12 @@ const (
   IDENT     = "IDENT"
   INT       = "INT"
 
-  ASSIGN    = "+"
-  PLUS      = "-"
+  ASSIGN    = "="
+  PLUS      = "+"
 
   COMMA     = ","
   SEMICOLON = ";"
+
   LPAREN    = "("
   RPAREN    = ")"
   LBRACE    = "{"
